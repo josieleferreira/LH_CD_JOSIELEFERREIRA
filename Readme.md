@@ -1,7 +1,7 @@
                              PROJETO DE ANÁLISE EXPLORATÓRIA DE DADOS – IMDB
 
 <p align="center">
-  <img src="images/mao-segurando-objetos-de-entretenimento-isolados.jpg" alt="Cinema" width="600"/>
+  <img src="images/mao-segurando-objetos-de-entretenimento-isolados.jpg" alt="Cinema" width="900"/>
 </p>
 
 
