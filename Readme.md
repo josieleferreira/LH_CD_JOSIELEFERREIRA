@@ -1,5 +1,10 @@
                              PROJETO DE ANÁLISE EXPLORATÓRIA DE DADOS – IMDB
 
+<p align="center">
+  <img src="images/mao-segurando-objetos-de-entretenimento-isolados.jpg" alt="Cinema" width="600"/>
+</p>
+
+
 Este projeto realiza uma Análise Exploratória de Dados (EDA) no dataset desafio_indicium_imdb.csv, explorando estatísticas, visualizações e testes iniciais de modelagem preditiva.
 
 O notebook contém etapas de preparação de dados, gráficos exploratórios, análise de texto (WordCloud) e modelos de Machine Learning básicos (Regressão, Random Forest e XGBoost).
