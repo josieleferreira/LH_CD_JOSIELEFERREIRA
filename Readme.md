@@ -1,4 +1,4 @@
-Projeto de Análise Exploratória de Dados – IMDB
+                             PROJETO DE ANÁLISE EXPLORATÓRIA DE DADOS – IMDB
 
 Este projeto realiza uma Análise Exploratória de Dados (EDA) no dataset desafio_indicium_imdb.csv, explorando estatísticas, visualizações e testes iniciais de modelagem preditiva.
 
@@ -6,7 +6,7 @@ O notebook contém etapas de preparação de dados, gráficos exploratórios, an
 
 ---
 
-Estrutura do Projeto
+ESTRUTURA DO PROJETO
 ```
 Projeto
 ├── EDA.ipynb                
@@ -22,7 +22,7 @@ Projeto
 ```
 
 ---
-Instalação
+INSTALAÇÃO
 1. Clone o repositório
 ```
 git clone https://github.com/seu-usuario/seu-repo.git
@@ -60,7 +60,7 @@ wordcloud==1.9.3
 xgboost==2.1.1
 ```
 ---
-Execução
+EXECUÇÃO
 
 Certifique-se de que o arquivo desafio_indicium_imdb.csv está na raiz do projeto.
 
@@ -75,7 +75,7 @@ Abra o arquivo EDA.ipynb e execute as células na ordem para reproduzir as anál
 ---
 
 
-Tecnologias Utilizadas
+TECNOLOGIAS USADAS
 
 Python 3.12 (recomendado)
 
@@ -94,7 +94,7 @@ WordCloud – geração de nuvem de palavras
 XGBoost – algoritmo de gradient boosting
 
 ---
-Reprodutibilidade
+REPRODUTIBILIDADE
 
 Se você adicionar ou atualizar bibliotecas, lembre-se de atualizar o requirements.txt:
 ```
@@ -120,7 +120,7 @@ quick_report(saved, skipped, errors)
 ```
 
 ---
-Resultado esperado
+RESULTADO ESPERADO
 
 Os modelos serão salvos dentro da pasta modelos_pkl/:
 ```
@@ -131,7 +131,7 @@ modelos_pkl/pipe.pkl
 ```
 
 ---
-Carregando Modelos
+CARREGANDO OS MODELOS
 
 Para reabrir os modelos salvos, utilize o script load_trained_models.py:
 ```
@@ -148,10 +148,8 @@ y_pred = pipe_model.predict(X_test)
 ```
 
 ---
-Boas Práticas
+BOAS PRÁTICAS
 
 - Sempre reexecute o notebook antes de salvar os modelos, garantindo que todos foram treinados.
-
-- Versione os .pkl apenas se necessário (ex.: para produção).
 
 - Para reprodutibilidade, mantenha as versões de bibliotecas fixadas em requirements.txt.
