@@ -1,0 +1,15 @@
+# Python/venv
+.venv/
+__pycache__/
+*.pyc
+
+# Jupyter
+.ipynb_checkpoints/
+
+# modelos_pkl/
+# *.csv
+# *.pkl
+#*.parquet
+
+# IDE
+.vscode/
