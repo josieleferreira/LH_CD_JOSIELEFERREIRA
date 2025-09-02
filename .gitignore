@@ -13,3 +13,6 @@ __pycache__/
 
 # IDE
 .vscode/
+.venv/
+__pycache__/
+*.ipynb_checkpoints/
