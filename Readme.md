@@ -1,29 +1,25 @@
                              PROJETO DE ANÁLISE EXPLORATÓRIA DE DADOS – IMDB
 
-<p align="center">
-  <img src="images/mao-segurando-objetos-de-entretenimento-isolados.jpg" alt="Cinema" width="900"/>
-</p>
 
+Este projeto realiza uma Análise Exploratória de Dados (EDA) no dataset imdb.csv, explorando estatísticas, visualizações e testes iniciais de modelagem preditiva.
 
-Este projeto realiza uma Análise Exploratória de Dados (EDA) no dataset desafio_indicium_imdb.csv, explorando estatísticas, visualizações e testes iniciais de modelagem preditiva.
-
-O notebook contém etapas de preparação de dados, gráficos exploratórios, análise de texto (WordCloud) e modelos de Machine Learning básicos (Regressão, Random Forest e XGBoost).
+O notebook contém etapas de preparação de dados, gráficos exploratórios, análise de texto (WordCloud) e modelos de Machine Learning básicos (Regressão e Random Forest).
 
 ---
 
 ESTRUTURA DO PROJETO
 ```
-Projeto
-├── EDA.ipynb                
-├── save_trained_models.py    
-├── load_trained_models.py   
-├── modelos_pkl/              
-│   ├── cat_pipe.pkl
-│   ├── num_log_pipe.pkl
-│   ├── num_plain_pipe.pkl
-│   └── pipe.pkl
-├── desafio_indicium_imdb.csv
-└── requirements.txt          #
+LH_CD_JOSIELE/
+│── dados/                
+│── notebook/              
+│   └── case_imdb.ipynb
+│── artifacts/             
+│   ├── imdb_rf_*.pkl
+│   └── imdb_rf_*_meta.json
+│── reports/              
+│   └── Apresentação IMDB.pdf
+│── requirements.txt       
+│── Readme.md          
 ```
 
 ---
@@ -67,14 +63,15 @@ xgboost==2.1.1
 ---
 EXECUÇÃO
 
-Certifique-se de que o arquivo desafio_indicium_imdb.csv está na raiz do projeto.
+Certifique-se de que o arquivo imdb.csv está na raiz do projeto.
 
 Inicie o Jupyter Notebook:
 ```
-jupyter notebook
+jupyter notebook notebook/case_imdb.ipynb
+
 ```
 
-Abra o arquivo EDA.ipynb e execute as células na ordem para reproduzir as análises.
+Abra o arquivo case_imdb.ipynb e execute as células na ordem para reproduzir as análises.
 
 
 ---
@@ -82,7 +79,7 @@ Abra o arquivo EDA.ipynb e execute as células na ordem para reproduzir as anál
 
 TECNOLOGIAS USADAS
 
-Python 3.12 (recomendado)
+Python 3.12.3
 
 Jupyter Notebook
 
@@ -108,51 +105,47 @@ pip freeze > requirements.txt
 
 Assim, quem clonar o repositório poderá recriar exatamente o mesmo ambiente.
 
-Salvando Modelos
-
-Os modelos são salvos utilizando o script save_trained_models.py.
-No final do seu notebook, após treinar os modelos/pipelines, basta rodar:
+Para recarregar o modelo salvo
 ```
-from save_trained_models import save_models, quick_report
-
-saved, skipped, errors = save_models(
-    globals(),
-    ["cat_pipe", "num_log_pipe", "num_plain_pipe", "pipe"],  # nomes das variáveis dos modelos
-    outdir="modelos_pkl"
-)
-
-quick_report(saved, skipped, errors)
+import joblib
+model = joblib.load("artifacts/imdb_rf_<timestamp>.pkl")
+pred = model.predict([seu_input])
 ```
 
 ---
 RESULTADO ESPERADO
 
-Os modelos serão salvos dentro da pasta modelos_pkl/:
+Modelagem:
+
+- Diferentes algoritmos foram avaliados.
+
+- O modelo escolhido foi o Random Forest Regressor (RF), por apresentar melhor desempenho no conjunto de validação
+
+Métricas de teste:
+
+- RMSE = 0.197
+
+- MAE = 0.150
+
+- R² = 0.41
+
+Os modelos serão salvos dentro da pasta artifacts:
 ```
-modelos_pkl/cat_pipe.pkl
-modelos_pkl/num_log_pipe.pkl
-modelos_pkl/num_plain_pipe.pkl
-modelos_pkl/pipe.pkl
-```
-
----
-CARREGANDO OS MODELOS
-
-Para reabrir os modelos salvos, utilize o script load_trained_models.py:
-```
-from load_trained_models import load_models
-
-# Carrega os modelos em um dicionário
-models = load_models(["cat_pipe", "num_log_pipe", "num_plain_pipe", "pipe"])
-
-# Exemplo: acessando o modelo principal (pipe)
-pipe_model = models["pipe"]
-
-# Fazendo previsões
-y_pred = pipe_model.predict(X_test)
+imdb_rf_20250903-153913_meta.json
+imdb_rf_20250903-153913.pkl
 ```
 
 ---
+RESULTADOS E CONCLUSÕES
+
+- O modelo conseguiu capturar parcialmente a relação entre variáveis e a nota no IMDB, alcançando um R² de ~0.41.
+
+- Principais fatores relacionados ao sucesso de um filme: número de votos, metascore, gênero e sinopse.
+
+- Apesar do dataset relativamente pequeno, a solução demonstra o uso de Machine Learning aplicado em regressão real.
+
+---
+
 BOAS PRÁTICAS
 
 - Sempre reexecute o notebook antes de salvar os modelos, garantindo que todos foram treinados.

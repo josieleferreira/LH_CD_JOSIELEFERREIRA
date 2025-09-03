@@ -6,11 +6,6 @@ __pycache__/
 # Jupyter
 .ipynb_checkpoints/
 
-# modelos_pkl/
-# *.csv
-# *.pkl
-#*.parquet
-
 # IDE
 .vscode/
 .venv/

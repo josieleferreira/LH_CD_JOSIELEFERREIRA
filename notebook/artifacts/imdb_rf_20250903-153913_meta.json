@@ -1,0 +1,43 @@
+{
+  "framework": "scikit-learn",
+  "model_name": "RF",
+  "trained_at": "2025-09-03T15:39:15",
+  "target": "IMDB_Rating",
+  "features_used": {
+    "numeric_cols": [
+      "Released_Year",
+      "Meta_score",
+      "No_of_Votes",
+      "title_length",
+      "Runtime_min",
+      "overview_length",
+      "Gross_num"
+    ],
+    "cat_cols": [
+      "Series_Title",
+      "Certificate",
+      "Runtime",
+      "Overview",
+      "Director",
+      "Star1",
+      "Star2",
+      "Star3",
+      "Star4",
+      "Gross"
+    ],
+    "genre_col": [
+      "Genre"
+    ]
+  },
+  "versions": {
+    "python": "3.12.3",
+    "sklearn": "1.7.1",
+    "pandas": "2.3.2",
+    "numpy": "2.3.2"
+  },
+  "test_metrics": {
+    "rmse": 0.19682171659905903,
+    "mae": 0.15019000000000018,
+    "r2": 0.4098655151270446
+  }
+}
