@@ -79,33 +79,33 @@ Abra o arquivo case_imdb.ipynb e execute as células na ordem para reproduzir as
 
 TECNOLOGIAS USADAS
 
-Python 3.12.3
+- Python 3.12.3
 
-Jupyter Notebook
+- Jupyter Notebook
 
-Pandas – manipulação de dados
+- Pandas – manipulação de dados
 
-NumPy – operações numéricas
+- NumPy – operações numéricas
 
-Matplotlib / Seaborn – visualizações gráficas
+- Matplotlib / Seaborn – visualizações gráficas
 
-Scikit-learn – pré-processamento e modelagem
+- Scikit-learn – pré-processamento e modelagem
 
-WordCloud – geração de nuvem de palavras
+- WordCloud – geração de nuvem de palavras
 
-XGBoost – algoritmo de gradient boosting
+- joblib (serialização do modelo)
 
 ---
 REPRODUTIBILIDADE
 
-Se você adicionar ou atualizar bibliotecas, lembre-se de atualizar o requirements.txt:
+- Se você adicionar ou atualizar bibliotecas, lembre-se de atualizar o requirements.txt:
 ```
 pip freeze > requirements.txt
 ```
 
 Assim, quem clonar o repositório poderá recriar exatamente o mesmo ambiente.
 
-Para recarregar o modelo salvo
+- Para recarregar o modelo salvo
 ```
 import joblib
 model = joblib.load("artifacts/imdb_rf_<timestamp>.pkl")
